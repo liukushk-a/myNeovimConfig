@@ -26,10 +26,10 @@ return {
 			else
 				cb({
 					type = "executable",
-					command = "/home/liukushka/.virtualenvs/debugpy/bin/python3",
+					command = "~/.virtualenvs/debugpy/bin/python",
 					args = { "-m", "debugpy.adapter" },
 					options = {
-						source_filetype = "python3",
+						source_filetype = "python",
 					},
 				})
 			end
@@ -52,12 +52,12 @@ return {
 					-- and uses the python within.
 					-- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
 					local cwd = vim.fn.getcwd()
-					if vim.fn.executable(cwd .. '/venv/bin/python3') == 1 then
-						return cwd .. '/venv/bin/python3'
-					elseif vim.fn.executable(cwd .. "/.venv/bin/python3") == 1 then
-						return cwd .. "/.venv/bin/python3"
+					if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
+						return cwd .. '/venv/bin/python'
+					elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
+						return cwd .. "/.venv/bin/python"
 					else
-						return "/usr/bin/python3"
+						return "/usr/bin/python"
 					end
 				end,
 			},

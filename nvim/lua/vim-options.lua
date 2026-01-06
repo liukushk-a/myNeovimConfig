@@ -23,3 +23,6 @@ vim.keymap.set("n", "<A-l>", [[<cmd>vertical resize +5<cr>]]) -- make the window
 vim.keymap.set("n", "<A-h>", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
 vim.keymap.set("n", "<A-k>", [[<cmd>horizontal resize +2<cr>]]) -- make the window bigger horizontally by pressing shift and =
 vim.keymap.set("n", "<A-j>", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
+
+-- to toggle the term easily
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")

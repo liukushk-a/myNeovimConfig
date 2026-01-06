@@ -23,3 +23,8 @@ require("vim-options")
 -- this is typecraft type of config, so a very clear init.lua and all the
 -- plugins inside the plugins folder, which is called here:
 require("lazy").setup("plugins")
+
+-- this is to allow the bufferline to work. If you have doubts, see the
+-- github
+--vim.opt.termguicolors = true
+--require("bufferline").setup{}
