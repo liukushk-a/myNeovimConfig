@@ -4,8 +4,22 @@ return{
 	config = function()
 		require("lualine").setup({
 		options = {
-			theme = 'ayu_mirage',
-		}
-		})
+			theme = 'auto',
+		},
+		sections = {
+			lualine_a = {'mode'},
+			lualine_b = {'branch', 'diff', 'diagnostics'},
+			lualine_c = {'filename'},
+			lualine_x = {'encoding', 'fileformat', 'filetype'},
+			lualine_y = {'progress'},
+			lualine_z = {
+					function()
+					  return " " .. os.date("%R")
+					end,
+				  },
+		},
+
+	})
+		-- require("battery").get_status_line()
 	end
 }
