@@ -25,6 +25,10 @@ require("vim-options")
 require("lazy").setup("plugins")
 
 -- this is to allow the bufferline to work. If you have doubts, see the
--- github
+-- github. Bufferline is usefull if you want to have the buffers all aligned
+-- at the top of your screen in a compact way
 --vim.opt.termguicolors = true
 --require("bufferline").setup{}
+
+-- for the python debugger
+require("dap-python").setup("python3")

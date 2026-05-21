@@ -1,8 +1,15 @@
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
+		-- nvim-dap-ui è per avere la finestrella grafica carina e nvim-nio è una sua dipendenza
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
+		-- devo anche installare il nvim-dap-python, il cui setup verrà poi chiamato in seguito,
+		-- per "collegarlo" a quello di nvim-dap. Se hai dubbi sulla procedura da seguire, puoi
+		-- vedere questo link: https://github.com/mfussenegger/nvim-dap-python. Io non ho compilato
+		-- il parser ma ho usato treesitter, in particolare se vai dentro il plugin di treesitter,
+		-- vedrai che c'è un require tree-sitter install con anche python
+		"mfussenegger/nvim-dap-python",
 	},
 
 	-- to understand the keybindings, you should go check the github page of nvim-dap
@@ -26,8 +33,18 @@ return {
 			else
 				cb({
 					type = "executable",
-					command = "/home/liukushka/.virtualenvs/debugpy/bin/python3",
-					args = { "-m", "debugpy.adapter" },
+					-- scrivo il percorso del python3 installato a livello di sistema, non una
+					-- virtualenv come aveva fatto typecraft, perchè io ho deciso di installarlo
+					-- a livello globale, perciò con sudo apt install python3-debugpy, cambia il
+					-- comando che dice a che python devo puntare: non ad una venv, ma al python
+					-- di sistema. Se preferisci usare una venv, dovrai cambiare questa riga
+					-- con quella che ti lascio commentata sotto
+					--command = "/home/liukushka/.virtualenvs/debugpy/bin/python3",
+					command = "/usr/bin/python3",
+					-- rispetto a ciò che avevo visto sulla pagina github di nvim-dap, quando ho
+					-- installato il debugpy, se runno sul terminale: python3 -m debugpy --version,
+					-- mi dice, testuali parole, di passare -Xfrozen_modules=off e così ho fatto
+					args = { "-Xfrozen_modules=off", "-m", "debugpy.adapter" },
 					options = {
 						source_filetype = "python3",
 					},
