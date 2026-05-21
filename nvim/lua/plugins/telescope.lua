@@ -10,6 +10,8 @@ return{
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 		vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = 'Telescope old files' })
+		-- the notify thing was not working with the builtin so I did it like this, with the whle command
+		vim.keymap.set('n', '<leader>fn', "<cmd>Telescope notify<cr>", { desc = 'Telescope notifications' })
 	 end
  	},
 	{

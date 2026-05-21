@@ -25,4 +25,5 @@ vim.keymap.set("n", "<A-k>", [[<cmd>horizontal resize +2<cr>]]) -- make the wind
 vim.keymap.set("n", "<A-j>", [[<cmd>horizontal resize -2<cr>]]) -- make the window smaller horizontally by pressing shift and -
 
 -- to toggle the term easily
-vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", { desc = 'Toggle terminal' })
+
